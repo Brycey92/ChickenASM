@@ -76,7 +76,7 @@ public class MethodWriter extends ClassNodeTransformer {
      */
     public MethodWriter(int access, @Nonnull ObfMapping method, @Nullable String[] exceptions, @Nullable InsnList list) {
         this.access = access;
-        this.method = method.toClassloading();
+        this.method = method;
         this.exceptions = exceptions;
         this.list = list;
     }

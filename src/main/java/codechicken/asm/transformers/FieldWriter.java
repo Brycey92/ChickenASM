@@ -25,7 +25,7 @@ public class FieldWriter extends ClassNodeTransformer {
      * @param value  The default value for the field.
      */
     public FieldWriter(@Nonnull int access, @Nonnull ObfMapping field, @Nullable Object value) {
-        this.field = field.toClassloading();
+        this.field = field;
         this.access = access;
         this.value = value;
     }

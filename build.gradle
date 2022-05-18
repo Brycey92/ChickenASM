@@ -4,7 +4,7 @@ buildscript {
 		jcenter()
 		maven {
 			name = "forge"
-			url = "http://files.minecraftforge.net/maven"
+			url = "https://files.minecraftforge.net/maven"
 		}
 	}
 	dependencies {
@@ -16,7 +16,7 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'java'
 apply plugin: 'maven'
 
-group = "codechicken" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+group = "codechicken" // https://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "ChickenASM"
 
 targetCompatibility = "1.8"
@@ -55,6 +55,10 @@ jar {
 	manifest commonManifest
 }
 
+sourceSets {
+	modlauncher
+}
+
 task srcJar(type: Jar) {
 	from sourceSets.main.allSource
 	classifier = 'sources'
@@ -89,7 +93,7 @@ uploadArchives {
 			if (project.hasProperty("local_maven") || project.hasProperty("maven_pass")) {
 				if (project.hasProperty("maven_pass")) {
 					println "Uploading to remote maven."
-					repository(url: "http://maven_upload.covers1624.net/") {
+					repository(url: "https://maven_upload.covers1624.net/") {
 						authentication(userName: "covers1624", password: project.getProperty("maven_pass"))
 					}
 				} else {
